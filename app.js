@@ -4,12 +4,12 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const nunjucks = require('express-nunjucks');
 
-const routes = require('./routes/routes');
+const routes = require('./app/routes/routes');
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'html');
 
 // Configuring the template system.
