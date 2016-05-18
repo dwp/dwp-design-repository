@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     watch: {
       jsFiles: {
         files: ['app/assets/javascripts/**/*.js'],
-        tasks: ['sync:assets'],
+        tasks: ['babel'],
         options: {
           spawn: false
         }
@@ -54,6 +54,23 @@ module.exports = function (grunt) {
         options: {
           spawn: false
         }
+      }
+    },
+
+    babel: {
+      options: {
+        sourceMap: false,
+        presets: ['es2015']
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/assets/javascripts/',
+            src: ['**/*.js'],
+            dest: 'public/javascripts/'
+          }
+        ]
       }
     },
 
@@ -86,8 +103,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sync');
+  grunt.loadNpmTasks('grunt-babel');
 
   // Register tasks
-  grunt.registerTask('default', ['sass', 'sync:assets', 'concurrent:target']);
-  grunt.registerTask('generate-assets', ['sass', 'sync:assets']);
+  grunt.registerTask('default', ['generate-assets', 'sync:assets', 'concurrent:target']);
+  grunt.registerTask('generate-assets', ['sass', 'sync:assets', 'babel']);
 };
