@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const nunjucks = require('express-nunjucks');
 
-const routes = require('./routes/index');
+const routes = require('./routes/routes');
 
 const app = express();
 
