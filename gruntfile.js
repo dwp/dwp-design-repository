@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
   grunt.initConfig({
+    // Compile SASS and move to CSS folder
     sass: {
       dev: {
         options: {
@@ -10,16 +11,30 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'app/assets/sass',
           src: ['*.scss'],
-          dest: 'public/stylesheets/',
+          dest: 'app/assets/css',
           ext: '.css'
         }]
       }
     },
 
+    // Move all assets into public
+    sync: {
+      assets: {
+        files: [{
+          expand: true,
+          cwd: 'app/assets/',
+          src: ['**/*', '!sass/**'],
+          dest: 'public/'
+        }],
+        updateAndDelete: true
+      }
+    },
+
+    // Watch fies for changes
     watch: {
       jsFiles: {
         files: ['app/assets/javascripts/**/*.js'],
-        tasks: ['sass'],
+        tasks: ['sync:assets'],
         options: {
           spawn: false
         }
@@ -27,13 +42,22 @@ module.exports = function (grunt) {
 
       sassFiles: {
         files: ['app/assets/sass/**/*.scss'],
-        tasks: ['sass'],
+        tasks: ['generate-assets'],
+        options: {
+          spawn: false
+        }
+      },
+
+      assets: {
+        files: ['app/assets/**/*', '!app/assets/sass/**'],
+        tasks: ['sync:assets'],
         options: {
           spawn: false
         }
       }
     },
 
+    // Restart server when backend files are edited
     nodemon: {
       dev: {
         script: 'bin/www',
@@ -45,6 +69,7 @@ module.exports = function (grunt) {
       }
     },
 
+    // Group watch and nodemon into one task
     concurrent: {
       target: {
         tasks: ['watch', 'nodemon'],
@@ -55,10 +80,14 @@ module.exports = function (grunt) {
     }
   });
 
+  // Load all tasks
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-sync');
 
-  grunt.registerTask('default', ['sass', 'concurrent:target']);
+  // Register tasks
+  grunt.registerTask('default', ['sass', 'sync:assets', 'concurrent:target']);
+  grunt.registerTask('generate-assets', ['sass', 'sync:assets']);
 };
