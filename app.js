@@ -17,25 +17,18 @@ app.set('view engine', 'html');
 
 // Configuring the template system.
 nunjucks.setup({
-    // (default: true) controls if output with dangerous characters are escaped automatically.
     autoescape: true,
-    // (default: false) throw errors when outputting a null/undefined value.
     throwOnUndefined: false,
-    // (default: false) automatically remove trailing newlines from a block/tag.
     trimBlocks: false,
-    // (default: false) automatically remove leading whitespace from a block/tag.
     lstripBlocks: false,
-    // (default: false) if true, the system will automatically update templates when they are changed on the filesystem.
     watch: true,
-    // (default: false) if true, the system will avoid using a cache and templates will be recompiled every single time.
     noCache: true,
-    // (default: see nunjucks syntax) defines the syntax for nunjucks tags.
     tags: {}
 }, app);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -62,6 +55,7 @@ if (app.get('env') === 'development') {
       message: err.message,
       error: err
     });
+    console.log(err)
   });
 }
 
