@@ -12,7 +12,6 @@
     "express": "~4.13.1",
     "express-nunjucks": "^1.0.0",
     "jade": "~1.11.0",
-    "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "xo": "^0.15.1"
   },
