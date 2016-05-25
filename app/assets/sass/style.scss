@@ -2,7 +2,7 @@
 
 $borderColor: #E5E5E5;
 $charcoal: #333333;
-$medGrey: #666666;
+$medGrey: #999999;
 $lightGrey: #fdfbfd;
 
 html {
@@ -57,6 +57,10 @@ header.site-header {
 
     a {
       color: inherit;;
+    }
+
+    .active {
+      color: #000;
     }
   }
 }

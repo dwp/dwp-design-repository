@@ -31,6 +31,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  res.locals.active = {};
+
+  if (req.originalUrl === '/patches') {
+    res.locals.active.patches = 'active';
+  } else if (req.originalUrl === '/stickers') {
+    res.locals.active.stickers = 'active';
+  }
+
+  next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
