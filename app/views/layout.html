@@ -6,7 +6,39 @@
     {% include 'includes/head.html' %}
   </head>
   <body>
+    <header class="site-header">
+      <div class="section group">
+        <div class="col span_1_of_12">
+          <div class="logo">
+            <a href="/">DWP</a>
+          </div>
+        </div>
+
+        <div class="col span_10_of_12">
+          <div class="site-title">
+            Mission Patches and Stickers
+          </div>
+        </div>
+
+        <div class="col span_1_of_12"></div>
+      </div>
+
+      <div class="section group">
+        <div class="col span_2_of_2">
+          <nav class="nav-submenu">
+            <a href="#">Patches</a> / <a href="#">Stickers</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+
+
     {% block content %}{% endblock %}
+
+    <footer>
+      Footer
+    </footer>
   </body>
   {% block scripts %}{% endblock %}
   {% include 'includes/scripts.js' %}

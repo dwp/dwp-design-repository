@@ -1,3 +1,74 @@
+@import 'grid';
+
+$borderColor: #E5E5E5;
+$charcoal: #333333;
+$medGrey: #666666;
+$lightGrey: #fdfbfd;
+
 html {
   font-family: helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+body {
+  background-color: $lightGrey;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  min-height: 400px;
+}
+
+header.site-header {
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
+
+  :first-child.section {
+    background-color: $charcoal;
+  }
+
+  :last-child.section {
+    color: $charcoal;
+    background: #fff;
+    border-bottom: 1px solid $borderColor;
+  }
+
+  .logo {
+    margin-left: 10%;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  nav.nav-submenu {
+    font-size: 0.8em;
+    color: $medGrey;
+    font-weight: bold;
+
+    a {
+      color: inherit;;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1020px;
+  margin: auto;
+}
+
+footer {
+  height: 200px;
+  background-color: #fff;
+  border-top: 1px solid $borderColor;
 }
