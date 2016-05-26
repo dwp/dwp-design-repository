@@ -1,5 +1,5 @@
 {
-  "name": "DWP Mission Patches",
+  "name": "dwp-mission-patches",
   "version": "0.0.1",
   "engines": {
     "node": "6.1.0"
