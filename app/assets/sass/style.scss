@@ -1,85 +1,13 @@
 @import 'grid';
 @import 'default-elements';
 @import 'headings';
-
-.no-margin {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-header.site-header {
-  color: #fff;
-  font-size: 1.2em;
-  text-align: center;
-
-  :first-child.section {
-    background-color: $charcoal;
-  }
-
-  :last-child.section {
-    color: $charcoal;
-    background: #fff;
-    border-bottom: 1px solid $borderColor;
-  }
-
-  .logo {
-    margin-left: 10%;
-  }
-
-  a {
-    color: #fff;
-    transition: color ease-in-out 0.1s;
-
-    &:hover {
-      color: #ddd;
-    }
-  }
-
-  nav.nav-submenu {
-    font-size: 0.8em;
-    color: $medGrey;
-    font-weight: bold;
-
-    a {
-      color: inherit;;
-
-      &:hover {
-        color: #000;
-      }
-    }
-
-    .active {
-      color: #000;
-    }
-  }
-}
+@import 'header';
+@import 'archive-pages';
+@import 'patch-page';
+@import 'sticker-page';
 
 .container {
   width: 90%;
   max-width: 1020px;
   margin: auto;
-}
-
-.sticker-patch-wrapper {
-  color: #000;
-  display: block;
-
-  img {
-    transition: transform ease-in-out 0.1s;
-    margin: 20px;
-  }
-
-  &:hover {
-    >.sticker-patch img {
-      transform: scale(1.05);
-    }
-  }
-
-  .sticker-patch {
-    margin-top: 3em;
-    height: 230px;
-    border-radius: 3px;
-    position: relative;
-    transition: all ease-in-out 0.1s;
-  }
 }
