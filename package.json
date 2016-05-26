@@ -1,6 +1,9 @@
 {
   "name": "DWP Mission Patches",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "engines": {
+    "node": "6.1.0"
+  },
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
