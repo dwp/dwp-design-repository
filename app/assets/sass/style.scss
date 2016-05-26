@@ -28,6 +28,11 @@ header.site-header {
 
   a {
     color: #fff;
+    transition: color ease-in-out 0.1s;
+
+    &:hover {
+      color: #ddd;
+    }
   }
 
   nav.nav-submenu {
@@ -37,6 +42,10 @@ header.site-header {
 
     a {
       color: inherit;;
+
+      &:hover {
+        color: #000;
+      }
     }
 
     .active {
@@ -46,21 +55,31 @@ header.site-header {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1020px;
   margin: auto;
 }
 
 .sticker-patch-wrapper {
-    color: #000;
+  color: #000;
+  display: block;
+
+  &:hover {
+    >.sticker-patch {
+      -webkit-box-shadow: 0px 0px 0px 2px rgba(255,191,71,1);
+      -moz-box-shadow: 0px 0px 0px 2px rgba(255,191,71,1);
+      box-shadow: 0px 0px 0px 2px rgba(255,191,71,1);
+    }
+  }
 
   .sticker-patch {
-    margin-top: 2em;
+    margin-top: 3em;
     background-color: #ffffff;
     border: 1px solid $borderColor;
     height: 230px;
     border-radius: 3px;
     position: relative;
+    transition: all ease-in-out 0.1s;
 
     img {
       width: 80%;

@@ -13,4 +13,8 @@ router.get('/stickers', (req, res) => {
   res.render('stickers');
 });
 
+router.get('/patches/:filename', (req, res) => {
+  res.render(`patches/${req.params.filename}`);
+});
+
 module.exports = router;

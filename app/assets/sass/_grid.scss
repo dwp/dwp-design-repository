@@ -2,7 +2,6 @@
 /*	Set margin, the rest is automatic! */ $margin: 3.4%;
 /* 	==================================================== */
 
-
 //  SECTIONS  ==========================================
 .section { clear: both; padding: 0px; margin: 0px; }
 //  GROUPING  ==========================================
@@ -10,6 +9,7 @@
 	&:before, &:after { content: ""; display: table; }
 	&:after { clear: both; }
 }
+
 //  GRID COLUMN SETUP   ================================
 .col { display: block; float:left; margin: 1% 0 1% $margin;
 	&:first-child {	margin-left: 0; /* all browsers except IE6 and lower */ }
@@ -22,13 +22,30 @@
 			.span_#{$span}_of_#{$cols} { width: 100%; }
 		} @else {
 			.span_#{$span}_of_#{$cols} { width: (((100 - ($margin * ($cols - 1))) / $cols) * $span) + (($span - 1) * $margin); }
+
+			@media (max-width: 767px) {
+				.span_#{$span}_of_#{$cols} {
+					width: 80%;
+					margin: auto;
+				}
+			}
 		}
 		$span: $span - 1;
 	}
 }
 
-
 .span_half { float:left; width:50%; }
 .span_third { float:left; width:33.333333333333%; }
 .span_quarter { float:left; width:25%; }
 .span_fifth { float:left; width:20%; }
+
+@media (max-width: 767px) {
+	.col { display: block; float:none; margin: 1% auto 1% auto;
+		&:first-child {	margin-left: auto; /* all browsers except IE6 and lower */ }
+	}
+
+	.span_half { float:none; width:100%; }
+	.span_third { float:none; width:100%; }
+	.span_quarter { float:none; width:100%; }
+	.span_fifth { float:none; width:100%; }
+}
