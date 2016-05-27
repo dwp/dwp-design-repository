@@ -34,9 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   res.locals.active = {};
 
-  if (req.originalUrl === '/patches/') {
+  if (req.originalUrl === '/patches/' || req.originalUrl === '/patches') {
     res.locals.active.patches = 'active';
-  } else if (req.originalUrl === '/stickers/') {
+  } else if (req.originalUrl === '/stickers/' || req.originalUrl === '/stickers') {
     res.locals.active.stickers = 'active';
   }
 
