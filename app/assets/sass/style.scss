@@ -14,6 +14,7 @@
 }
 
 .back-link {
+  color: $black;
   display: inline-block;
   position: relative;
   padding-left: 14px;
@@ -25,7 +26,7 @@
   width: 0;
   height: 0;
   border-top: 5px solid transparent;
-  border-right: 6px solid $govukBlue;
+  border-right: 6px solid $black;
   border-bottom: 5px solid transparent;
   position: absolute;
   left: 0;
