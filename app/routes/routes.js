@@ -14,11 +14,13 @@ router.get('/stickers', (req, res) => {
 });
 
 router.get('/patches/:filename', (req, res) => {
-  res.render(`patches/${req.params.filename}`);
+  const filename = req.params.filename.split('.')[0];
+  res.render(`patches/${filename}`, {filename});
 });
 
 router.get('/stickers/:filename', (req, res) => {
-  res.render(`stickers/${req.params.filename}`);
+  const filename = req.params.filename.split('.')[0];
+  res.render(`stickers/${filename}`, {filename});
 });
 
 module.exports = router;

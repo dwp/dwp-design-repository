@@ -1,17 +1,20 @@
-{% extends "layouts/default.html" %}
+{% extends "layouts/sticker-single.html" %}
 
 {% block pageTitle %}
   Page Title
 {% endblock %}
 
-{% block content %}
-  <main id="content" role="main">
-    <div class="container">
-      <div class="section group">
-        <div class="col span_2_of_2">
-          Sticker
-        </div>
-      </div>
-    </div>
-  </main>
+{% set author = '' %}
+{% set authorLink = '' %}
+
+{% set borderColor = '#005EA5' %}
+
+{% block title %}
+  GOVUK crown
+{% endblock %}
+
+{% block description %}
+  The GOVUK crown sticker is usually used to cover the Apple LED on the lid of
+  Macbook laptops. For this, the sticker should be printed onto clear vinyl or
+  die-cut from black vinyl.
 {% endblock %}

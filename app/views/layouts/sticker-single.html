@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block pageTitle %}{% endblock %}</title>
+    {% include 'includes/head.html' %}
+  </head>
+  <body>
+    {% block header %}
+      {% include 'includes/header.html' %}
+    {% endblock %}
+
+    <main id="content" role="main">
+      <div class="container">
+        <a class="back-link" href="/stickers">Back</a>
+
+        <div class="section group">
+          <div class="col span_1_of_10">
+          </div>
+
+          <div class="col span_3_of_10">
+            <div class="big-patch">
+              <img src="/images/stickers/{{filename}}.svg" />
+            </div>
+          </div>
+
+          <div class="col span_5_of_10">
+            <div class="mission-wrapper">
+               <div class="mission-statement">
+                <h1 class="heading-large">
+                  {% block title %}{% endblock %}
+                  {% if author %}
+                    {% if authorLink %}
+                      <br /><span class="author">By <a href="{{authorLink}}">{{author}}</a></span>
+                    {% else %}
+                      <br /><span class="author">By {{author}}</span>
+                    {% endif %}
+                  {% endif %}
+                </h1>
+
+                <blockquote {{"style=border-color:" + (borderColor) if borderColor}}>
+                  {% block description %}{% endblock %}
+                </blockquote>
+
+                <hr />
+
+                <h3 class="heading-small">Download</h3>
+               </div>
+            </div>
+          </div>
+
+          <div class="col span_1_of_10">
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </main>
+
+    {% block footer %}
+      {% include 'includes/footer.html' %}
+    {% endblock %}
+  </body>
+
+  {% block scripts %}{% endblock %}
+  {% include 'includes/scripts.js' %}
+  {% block pageScripts %}{% endblock %}
+</html>
