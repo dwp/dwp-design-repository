@@ -4,10 +4,26 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const env = process.env.NODE_ENV || 'development';
+const auth = require('basic-auth');
 
 const routes = require('./app/routes/routes');
 
 const app = express();
+
+// Username and Password
+if (env === 'production') {
+  app.use((req, res, next) => {
+    const credentials = auth(req);
+
+    if (!credentials || credentials.name !== process.env.USERNAME || credentials.pass !== process.env.PASSWORD) {
+      res.statusCode = 401;
+      res.setHeader('WWW-Authenticate', 'Basic realm="example"');
+      res.end('Access denied');
+    } else {
+      next();
+    }
+  });
+}
 
 // Configure Nunjucks
 if (env === 'production') {
