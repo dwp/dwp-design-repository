@@ -2,6 +2,7 @@ header.site-header {
   color: #fff;
   font-size: 1.2em;
   text-align: center;
+  margin-bottom: 3em;
 
   :first-child.section {
     background-color: $charcoal;
@@ -9,7 +10,7 @@ header.site-header {
 
   :last-child.section {
     color: $charcoal;
-    background: #fff;
+    background: $white;
     border-bottom: 1px solid $borderColor;
   }
 
@@ -18,7 +19,7 @@ header.site-header {
   }
 
   a {
-    color: #fff;
+    color: $white;
     transition: color ease-in-out 0.1s;
 
     &:hover {

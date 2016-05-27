@@ -1,10 +1,11 @@
+@import 'color-variables';
 @import 'grid';
 @import 'default-elements';
-@import 'headings';
 @import 'header';
 @import 'archive-pages';
 @import 'patch-page';
 @import 'sticker-page';
+@import 'typography';
 
 .container {
   width: 90%;

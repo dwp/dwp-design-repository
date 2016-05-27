@@ -11,14 +11,13 @@
   }
 
   &:hover {
-    color: #005EA5;
+    color: $govukBlue;
     >.sticker-patch img {
       transform: scale(1.05);
     }
   }
 
   .sticker-patch {
-    margin-top: 3em;
     height: 230px;
     border-radius: 3px;
     position: relative;
