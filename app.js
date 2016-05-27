@@ -2,26 +2,30 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const nunjucks = require('express-nunjucks');
+const nunjucks = require('nunjucks');
+const env = process.env.NODE_ENV || 'development';
 
 const routes = require('./app/routes/routes');
 
 const app = express();
 
+// Configure Nunjucks
+if (env === 'production') {
+  nunjucks.configure(['app/views'], {
+    autoescape: true,
+    express: app,
+    noCache: false});
+} else {
+  nunjucks.configure(['app/views'], {
+    autoescape: true,
+    express: app,
+    noCache: true
+  });
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'html');
-
-// Configuring the template system.
-nunjucks.setup({
-  autoescape: true,
-  throwOnUndefined: false,
-  trimBlocks: false,
-  lstripBlocks: false,
-  watch: true,
-  noCache: true,
-  tags: {}
-}, app);
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

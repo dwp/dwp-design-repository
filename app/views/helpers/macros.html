@@ -1,0 +1,21 @@
+{% macro patch(filename, heading) %}
+  <div class="col span_1_of_4 no-margin">
+    <a href="/patches/{{filename}}.html" class="sticker-patch-wrapper">
+      <div class="sticker-patch">
+        <img src="/images/patches/{{filename}}.svg" />
+      </div>
+
+      <h2 class="heading-small">{{heading}}</h2>
+    </a>
+  </div>
+{% endmacro %}
+
+{% macro sticker(filename) %}
+  <div class="col span_1_of_4 no-margin">
+    <a href="/stickers/{{filename}}.html" class="sticker-patch-wrapper">
+      <div class="sticker-patch">
+        <img src="/images/stickers/{{filename}}.svg" />
+      </div>
+    </a>
+  </div>
+{% endmacro %}

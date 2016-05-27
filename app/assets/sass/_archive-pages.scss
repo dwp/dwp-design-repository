@@ -1,13 +1,17 @@
 .sticker-patch-wrapper {
   color: #000;
   display: block;
+  text-align: center;
+  transition: color ease-in-out 0.1s;
 
   img {
     transition: transform ease-in-out 0.1s;
-    margin: 20px;
+    width: 100%;
+    height: 100%;
   }
 
   &:hover {
+    color: #005EA5;
     >.sticker-patch img {
       transform: scale(1.05);
     }
@@ -19,5 +23,6 @@
     border-radius: 3px;
     position: relative;
     transition: all ease-in-out 0.1s;
+    position: relative;
   }
 }

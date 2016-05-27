@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block pageTitle %}{% endblock %}</title>
+    {% include 'includes/head.html' %}
+  </head>
+  <body>
+    {% block header %}
+      {% include 'includes/header.html' %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+      {% include 'includes/footer.html' %}
+    {% endblock %}
+  </body>
+
+  {% block scripts %}{% endblock %}
+  {% include 'includes/scripts.js' %}
+  {% block pageScripts %}{% endblock %}
+</html>
