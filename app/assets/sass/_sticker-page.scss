@@ -6,3 +6,15 @@
     font-weight: bold;
   }
 }
+
+.download-link {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid $borderColor;
+
+  &:hover {
+    background-color: $borderColor;
+    text-decoration: none;
+    color: $govukBlue;
+  }
+}
