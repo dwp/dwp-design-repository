@@ -19,3 +19,16 @@
     </a>
   </div>
 {% endmacro %}
+
+{% macro poster(filename, heading) %}
+  <div class="col span_1_of_4 no-margin">
+    <a href="/posters/{{filename}}.html" class="poster-wrapper">
+      <div class="poster">
+        <img src="/images/posters/{{filename}}.svg" />
+      </div>
+
+      <p>{{heading}}</p>
+    </a>
+  </div>
+{% endmacro %}
+

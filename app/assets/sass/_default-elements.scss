@@ -21,9 +21,6 @@ a {
   &:hover {
     color: $black;
     text-decoration: underline;
-    >.sticker-patch img {
-      transform: scale(1.05);
-    }
   }
 }
 

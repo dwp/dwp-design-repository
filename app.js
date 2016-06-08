@@ -58,6 +58,8 @@ app.use((req, res, next) => {
     res.locals.active.patches = 'active';
   } else if (req.originalUrl === '/stickers/' || req.originalUrl === '/stickers') {
     res.locals.active.stickers = 'active';
+  } else if (req.originalUrl === '/posters/' || req.originalUrl === '/posters') {
+    res.locals.active.posters = 'active';
   }
 
   next();

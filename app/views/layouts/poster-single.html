@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block pageTitle %}{% endblock %}</title>
+    {% include 'includes/head.html' %}
+  </head>
+  <body>
+    {% block header %}
+      {% include 'includes/header.html' %}
+    {% endblock %}
+
+    <main id="content" role="main">
+      <div class="container">
+        <a class="back-link" href="/posters">Back</a>
+
+        <div class="section group">
+          <div class="col span_1_of_10">
+          </div>
+
+          <div class="col span_3_of_10">
+            <div class="big-patch">
+              <img src="/images/posters/{{filename}}.svg" />
+            </div>
+          </div>
+
+          <div class="col span_5_of_10">
+            <div class="mission-wrapper">
+               <div class="mission-statement">
+                <h1 class="heading-large">
+                  {% block title %}{% endblock %}
+                  {% if author %}
+                    {% if authorLink %}
+                      <br /><span class="author">By <a href="{{authorLink}}">{{author}}</a></span>
+                    {% else %}
+                      <br /><span class="author">By {{author}}</span>
+                    {% endif %}
+                  {% endif %}
+                </h1>
+
+                <blockquote {{"style=border-color:" + (borderColor) if borderColor}}>
+                  {% block description %}{% endblock %}
+                </blockquote>
+
+                <hr />
+
+                <h3 class="heading-small">Download</h3>
+                <a class="download-link" href="/images/posters/{{filename}}.pdf" download="/images/posters/{{filename}}.pdf">.pdf</a>
+                <a class="download-link" href="/images/posters/{{filename}}.jpg" download="/images/posters/{{filename}}.jpg">.jpg</a>
+                <a class="download-link" href="/images/posters/{{filename}}.png" download="/images/posters/{{filename}}.png">.png</a>
+               </div>
+            </div>
+          </div>
+
+          <div class="col span_1_of_10">
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </main>
+
+    {% block footer %}
+      {% include 'includes/footer.html' %}
+    {% endblock %}
+  </body>
+
+  {% block scripts %}{% endblock %}
+  {% include 'includes/scripts.js' %}
+  {% block pageScripts %}{% endblock %}
+</html>

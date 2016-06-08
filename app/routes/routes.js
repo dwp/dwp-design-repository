@@ -13,6 +13,10 @@ router.get('/stickers', (req, res) => {
   res.render('stickers');
 });
 
+router.get('/posters', (req, res) => {
+  res.render('posters');
+});
+
 router.get('/patches/:filename', (req, res) => {
   const filename = req.params.filename.split('.')[0];
   res.render(`patches/${filename}`, {filename});
@@ -21,6 +25,11 @@ router.get('/patches/:filename', (req, res) => {
 router.get('/stickers/:filename', (req, res) => {
   const filename = req.params.filename.split('.')[0];
   res.render(`stickers/${filename}`, {filename});
+});
+
+router.get('/posters/:filename', (req, res) => {
+  const filename = req.params.filename.split('.')[0];
+  res.render(`posters/${filename}`, {filename});
 });
 
 module.exports = router;

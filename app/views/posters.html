@@ -1,0 +1,17 @@
+{% extends "layouts/default.html" %}
+{% import 'helpers/macros.html' as m %}
+
+{% block pageTitle %}
+  Patches
+{% endblock %}
+
+{% block content %}
+  <main id="content" role="main">
+    <div class="container">
+      <div class="section group">
+        {{m.poster('dwp-design-principles', 'DWP Design Principles')}}
+        {{m.poster('ask-what-people-do', 'Ask what people do')}}
+      </div>
+    </div>
+  </main>
+{% endblock %}
