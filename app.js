@@ -15,13 +15,17 @@ if (env === 'production') {
   app.use((req, res, next) => {
     const credentials = auth(req);
 
-    if (!credentials || credentials.name !== process.env.USERNAME || credentials.pass !== process.env.PASSWORD) {
-      res.statusCode = 401;
-      res.setHeader('WWW-Authenticate', 'Basic realm="example"');
-      res.end('Access denied');
-    } else {
-      next();
+    if (credentials) {
+      if (credentials.name === process.env.USERNAME && credentials.pass === process.env.PASSWORD) {
+        return next();
+      } else if (credentials.name === process.env.USERNAME2 && credentials.pass === process.env.PASSWORD2) {
+        return next();
+      }
     }
+
+    res.statusCode = 401;
+    res.setHeader('WWW-Authenticate', 'Basic realm="example"');
+    res.end('Access denied');
   });
 }
 
