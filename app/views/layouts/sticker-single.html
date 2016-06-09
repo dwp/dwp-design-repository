@@ -31,7 +31,16 @@
                   {% block title %}{% endblock %}
                   {% if author %}
                     {% if authorLink %}
-                      <br /><span class="author">By <a href="{{authorLink}}">{{author}}</a></span>
+                      <br />
+                      <span class="author">
+                        By <a href="{{authorLink}}">{{author}}</a>
+                      </span>
+
+                      {% if author2 %}
+                        <span class="author">
+                          and <a href="{{authorLink2}}">{{author2}}</a>
+                        </span>
+                      {% endif %}
                     {% else %}
                       <br /><span class="author">By {{author}}</span>
                     {% endif %}
