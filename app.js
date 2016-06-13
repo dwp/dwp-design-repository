@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const env = process.env.NODE_ENV || 'development';
 const auth = require('basic-auth');
+const config = require(path.join(__dirname, '/app/config.js'));
 
 const routes = require('./app/routes/routes');
 
@@ -54,6 +55,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Set app name
+app.use((req, res, next) => {
+  res.locals.appName = config.appName;
+  next();
+});
 
 app.use((req, res, next) => {
   res.locals.active = {};

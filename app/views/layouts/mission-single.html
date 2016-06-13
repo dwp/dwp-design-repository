@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{% block pageTitle %}{% endblock %}</title>
+    <title>{{title}} - {{appName}}</title>
     {% include 'includes/head.html' %}
   </head>
   <body>
@@ -28,7 +28,7 @@
             <div class="mission-wrapper">
                <div class="mission-statement">
                 <h1 class="heading-large">
-                  {% block serviceName %}{% endblock %}
+                  {{title}}
                 </h1>
 
                 <blockquote {{"style=border-color:" + (borderColor) if borderColor}}>
