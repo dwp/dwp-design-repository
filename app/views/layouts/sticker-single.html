@@ -54,7 +54,7 @@
                 <hr />
 
                 <h3 class="heading-small">Download</h3>
-                <a class="download-link" href="/images/stickers/{{filename}}.sketch" download="/images/stickers/{{filename}}.sketch">.sketch</a>
+                {% if not hideSketchLink %}<a class="download-link" href="/images/stickers/{{filename}}.sketch" download="/images/stickers/{{filename}}.sketch">.sketch</a>{% endif %}
                 <a class="download-link" href="/images/stickers/{{filename}}.svg" download="/images/stickers/{{filename}}.svg">.svg</a>
                 <a class="download-link" href="/images/stickers/{{filename}}.png" download="/images/stickers/{{filename}}.png">.png</a>
                </div>
