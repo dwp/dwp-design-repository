@@ -18,14 +18,14 @@
     "express": "~4.13.1",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
-    "grunt-concurrent": "^2.3.0",
+    "grunt-concurrent": "^3.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-nodemon": "^0.4.2",
     "grunt-sass": "^1.2.0",
     "grunt-sync": "^0.6.2",
     "nunjucks": "^2.4.2",
-    "xo": "^0.15.1"
+    "xo": "^0.35.0"
   },
   "xo": {
     "space": true,
